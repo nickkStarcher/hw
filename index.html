@@ -1,0 +1,114 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .nav{
+            display: flex;
+            align-items: center;
+            background-color: lightblue;
+        }
+
+        .navbar{
+            display: flex;
+            list-style-type: none;
+            flex-direction: row;
+        }
+        .navbarItem{
+            width: 150px;
+        }
+
+        .navbar a{
+            text-decoration: none;
+            color: black;
+        }
+        
+        .dropdown{
+            position: relative;
+        }
+        .dropdownContents{
+            list-style: none;
+            display: none;
+            position: absolute; top: 15px;
+            background-color: lightblue;
+            padding: 10px;
+            min-width: 50px;
+            border-radius: 10px;
+        }
+
+        .dropdownContents li+li{
+            margin-top: 10px;
+        }
+        .dropdown:hover .dropdownContents{
+            display: block;
+        }
+        input[type=checkbox]{
+    display: none;
+}
+.toggleButton{
+    display: none;
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 768px){
+
+    .navbar{
+        display: none;
+        position: absolute;
+        top: 60px;
+        background-color: lightblue;
+        padding-bottom: 20px;padding-top: 20px;
+    }
+    .navbar li+li{
+        padding-top: 12px;
+    }
+    .toggleButton{
+        display: block;
+    }
+    .nav{
+        justify-content: space-between;
+        padding-left: 20px; padding-right: 20px;
+    }
+    input[type=checkbox]:checked ~ .navbar{
+        display: block;
+    }
+    /*
+    .nav{display: block;}
+    .nav{
+        flex-direction: column;
+    }
+    .nav img{padding-top: 25px;}
+    .navbar{
+        flex-direction: column;
+    }
+    .navbar li+li{
+        margin-top: 20px;
+    }
+    */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="nav">
+            <img src="pepe_holy.png" width="70px" length="70px">
+            <input type="checkbox" id="checkboxToggle">
+            <label for="checkboxToggle" class="toggleButton">&#9776;</label>
+        <ul class="navbar">
+            <li class="navbarItem"><a href="#">Home</a></li>
+            <li class="navbarItem"><a href="#">News</a></li>
+            <li class="navbarItem dropdown"><a href="#">Guns</a>
+                <ul class="dropdownContents">
+                    <li><a href="#">Deagle</a></li>
+                    <li><a href="#">Six shooter</a></li>
+                    <li><a href="#">Glock 17</a></li>
+                </ul>
+            </li>
+            <li class="navbarItem"><a href="#">Nukes</a></li>
+        </ul>
+        </header>
+    </div>
+</body>
+</html>
